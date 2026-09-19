@@ -1,0 +1,158 @@
+<!-- Website created by Laurand Osmeni Sep 18 2026 -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Laurand Osmeni's interactive deep-space software engineering portfolio and local AI knowledge terminal.">
+  <meta name="theme-color" content="#020807">
+  <title>Laurand AI // Deep Space Portfolio</title>
+  <link rel="preload" href="assets/emerald-exoplanet.png" as="image" type="image/png">
+  <link rel="preload" href="assets/laurand-graduation.webp" as="image" type="image/webp">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#askCore">Skip to intelligence terminal</a>
+  <div class="space-layer" aria-hidden="true"></div>
+  <div class="star-grid" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="meteor meteor-a" aria-hidden="true"></div>
+  <div class="meteor meteor-b" aria-hidden="true"></div>
+
+  <main class="bridge-shell">
+    <header class="bridge-header">
+      <div class="brand-lockup">
+        <span class="brand-mark" aria-hidden="true">L//O</span>
+        <div><p>Deep Space Intelligence Archive</p><strong>LAURAND OSMENI</strong></div>
+      </div>
+      <div class="header-readouts" aria-label="System status">
+        <span><i class="status-dot"></i> AI CORE ONLINE</span>
+        <span id="shipClock">00:00:00 UTC</span>
+        <button id="soundToggle" type="button" aria-pressed="true">SOUND ON</button>
+      </div>
+    </header>
+
+    <div class="signal-ribbon" aria-hidden="true">
+      <span>SECTOR L0</span><b>INTELLIGENCE LINK STABLE</b><span>EARTH ORIGIN</span>
+    </div>
+
+    <section class="bridge-grid">
+      <aside class="left-stack" aria-label="Identity and portfolio modules">
+        <article class="panel identity-card">
+          <div class="panel-cap"><span>01</span><b>IDENTITY VERIFIED</b><i></i></div>
+          <div class="portrait-orbit">
+            <div class="orbit-ring"></div>
+            <img src="assets/laurand-graduation.webp" width="720" height="720" alt="Laurand Osmeni at graduation">
+          </div>
+          <h2>LAURAND<br>OSMENI</h2>
+          <p>Software Engineer</p>
+          <dl class="identity-data">
+            <div><dt>ORIGIN</dt><dd>EARTH · CALIFORNIA</dd></div>
+            <div><dt>DEGREE</dt><dd>M.S. COMPUTER ENGINEERING</dd></div>
+            <div><dt>STATUS</dt><dd><span class="inline-online"></span> OPEN TO OPPORTUNITIES</dd></div>
+          </dl>
+        </article>
+
+        <nav class="panel module-nav" aria-label="Portfolio knowledge modules">
+          <div class="panel-cap"><span>02</span><b>KNOWLEDGE MODULES</b></div>
+          <button type="button" data-query="Tell me about Laurand"><span>PROFILE</span><i>01</i></button>
+          <button type="button" data-query="Show Laurand's projects"><span>PROJECTS</span><i>02</i></button>
+          <button type="button" data-query="What is Laurand's experience?"><span>EXPERIENCE</span><i>03</i></button>
+          <button type="button" data-query="What is Laurand's education?"><span>EDUCATION</span><i>04</i></button>
+          <button type="button" data-query="What programming languages does Laurand use?"><span>SKILLS</span><i>05</i></button>
+          <button type="button" data-query="How can I contact Laurand?"><span>CONTACT</span><i>06</i></button>
+        </nav>
+      </aside>
+
+      <section class="core-panel panel" id="askCore" tabindex="-1" aria-labelledby="coreTitle">
+        <div class="core-eyebrow"><span class="core-pulse"></span> LAURAND INTELLIGENCE CORE <b>LOCAL KNOWLEDGE LINK</b></div>
+        <h1 id="coreTitle">ASK ABOUT<br><span>LAURAND</span></h1>
+        <p class="core-intro">Explore software, projects, education, leadership, and the human behind the mission.</p>
+
+        <form id="askForm" class="ask-form">
+          <label for="askInput">Start typing a question</label>
+          <div class="input-frame">
+            <span class="input-status" aria-hidden="true"></span>
+            <input id="askInput" name="question" autocomplete="off" placeholder="e.g. What does Laurand build?" required>
+            <button type="submit" aria-label="Ask question">SEND <span aria-hidden="true">›</span></button>
+          </div>
+        </form>
+
+        <div class="suggestions" aria-label="Suggested questions">
+          <button type="button" data-query="What are Laurand's strongest skills?">TOP SKILLS</button>
+          <button type="button" data-query="Show Laurand's apps">MOBILE APPS</button>
+          <button type="button" data-query="Tell me about C++ and web development">C++ + WEB</button>
+          <button type="button" data-query="Why hire Laurand?">WHY LAURAND</button>
+        </div>
+
+        <article class="response-console" aria-live="polite">
+          <div class="response-head"><span>AI RESPONSE</span><i id="responseState">READY</i></div>
+          <div class="response-content">
+            <p class="response-kicker" id="responseKicker">MISSION BRIEF</p>
+            <h2 id="responseTitle">Software meets leadership.</h2>
+            <div id="responseBody">
+              <p>Laurand Osmeni is a software engineer with a master’s in computer engineering, more than a decade of independent app development, and leadership experience guiding high-volume operations.</p>
+            </div>
+            <div class="response-tags" id="responseTags"><span>C++</span><span>JAVASCRIPT</span><span>SWIFTUI</span><span>LEADERSHIP</span></div>
+          </div>
+          <div class="scanner-orbit" aria-hidden="true"><i></i><i></i><b></b></div>
+        </article>
+
+        <div class="core-footer">
+          <span>NO EXTERNAL AI · PRIVATE LOCAL RESPONSES</span>
+          <span>KNOWLEDGE INDEX 100%</span>
+        </div>
+      </section>
+
+      <aside class="right-stack" aria-label="Spacecraft and intelligence telemetry">
+        <article class="panel telemetry-panel">
+          <div class="panel-cap"><span>03</span><b>PLANET SEARCH</b><i class="status-dot"></i></div>
+          <div class="mini-orbit" aria-hidden="true"><i></i><i></i><b></b></div>
+          <dl>
+            <div><dt>HABITABLE</dt><dd>472</dd></div>
+            <div><dt>OCEAN WORLDS</dt><dd>311</dd></div>
+            <div><dt>CANDIDATES</dt><dd>23</dd></div>
+          </dl>
+          <div class="scan-progress"><i></i></div>
+        </article>
+
+        <article class="panel telemetry-panel compact">
+          <div class="panel-cap"><span>04</span><b>SHIP TELEMETRY</b></div>
+          <div class="bar-row"><span>HULL</span><i><b style="width:96%"></b></i><em>96%</em></div>
+          <div class="bar-row"><span>ENGINES</span><i><b style="width:88%"></b></i><em>88%</em></div>
+          <div class="bar-row"><span>AI CORE</span><i><b style="width:100%"></b></i><em>100%</em></div>
+          <div class="bar-row"><span>CHARGE</span><i><b id="chargeBar" style="width:73%"></b></i><em id="chargeValue">73%</em></div>
+        </article>
+
+        <article class="panel telemetry-panel compact">
+          <div class="panel-cap"><span>05</span><b>INTELLIGENCE ANALYSIS</b></div>
+          <div class="waveform" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="ability"><span>LOGIC</span><b><i style="width:94%"></i></b></div>
+          <div class="ability"><span>CREATIVITY</span><b><i style="width:91%"></i></b></div>
+          <div class="ability"><span>PROBLEM SOLVING</span><b><i style="width:97%"></i></b></div>
+          <div class="ability"><span>ADAPTABILITY</span><b><i style="width:95%"></i></b></div>
+        </article>
+
+        <article class="panel telemetry-panel life-panel">
+          <div class="panel-cap"><span>06</span><b>LIFE SCAN</b><i class="status-dot"></i></div>
+          <div class="life-signal"><span>⌁</span><div><b>INTELLIGENT LIFE FOUND</b><small>EARTH · CONFIDENCE 100%</small></div></div>
+          <p id="lifeLog">Following unknown signal beyond TRAPPIST-9X…</p>
+        </article>
+
+        <div class="external-actions">
+          <a href="https://github.com/Laurand" target="_blank" rel="noreferrer">GITHUB <span>↗</span></a>
+          <a href="https://apps.apple.com/us/developer/laurand-osmeni/id649085099" target="_blank" rel="noreferrer">APP STORE <span>↗</span></a>
+          <a href="https://laurand.github.io/SciFi_Portfolio/#contact" target="_blank" rel="noreferrer">CONTACT <span>↗</span></a>
+        </div>
+      </aside>
+    </section>
+
+    <footer class="mission-console">
+      <div><span class="status-dot"></span><b>MISSION LOG</b></div>
+      <p id="missionLog">Scanning sector L0 for software engineering opportunities…</p>
+      <button id="resetCore" type="button">RESET CORE</button>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
