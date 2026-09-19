@@ -1,4 +1,4 @@
-<img width="1791" height="1029" alt="site" src="https://github.com/user-attachments/assets/b23b1e16-e39e-44c2-bb40-15930f225858" />A futuristic, interactive portfolio showcasing my software development experience, education, projects, and technical skills.
+A futuristic, interactive portfolio showcasing my software development experience, education, projects, and technical skills.
 
 Visit Website
 https://laurand.github.io/Laurand_Deep_Space_Portfolio/index.html
