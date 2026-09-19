@@ -1,4 +1,4 @@
-// Website created by Laurand Osmeni Sep 18 2026
+// Website created by Laurand Osmeni
 const askForm = document.querySelector('#askForm');
 const askInput = document.querySelector('#askInput');
 const responseConsole = document.querySelector('.response-console');
@@ -207,3 +207,49 @@ window.setInterval(() => {
   document.querySelector('#chargeBar').style.width = `${charge}%`;
   document.querySelector('#chargeValue').textContent = `${charge}%`;
 }, 1800);
+
+const developerFeed = [
+  '<span class="prompt">$</span> compile --target <span class="cyan">C++23</span>',
+  '<span class="tag green">[PASS]</span> memory checks clean · 0 errors',
+  '<span class="prompt">$</span> test --module <span class="cyan">JavaScript UI</span>',
+  '<span class="tag amber">[BUILD]</span> responsive interface optimized',
+  '<span class="prompt">$</span> sync --service <span class="green">NestJS API</span>',
+  '<span class="tag cyan">[OK]</span> PostgreSQL connection stable',
+  '<span class="prompt">$</span> deploy --platform <span class="cyan">SwiftUI</span>',
+  '<span class="tag green">[READY]</span> iPhone · iPad · Mac channels',
+  '<span class="tag amber">[AI]</span> developer knowledge index refreshed',
+  '<span class="tag green">[CLEAN]</span> warnings resolved · build secured'
+];
+
+const navigationFeed = [
+  '<span class="tag cyan">[NAV]</span> plotting course to TRAPPIST-9X',
+  '<span class="tag amber">[ALERT]</span> meteor field ahead · shields active',
+  '<span class="prompt">$</span> evade --vector <span class="cyan">41.7°</span>',
+  '<span class="tag green">[CLEAR]</span> collision probability 0.002%',
+  '<span class="prompt">$</span> scan --biosphere <span class="green">deep</span>',
+  '<span class="tag danger">[BIO]</span> no consciousness detected yet',
+  '<span class="tag amber">[SIGNAL]</span> unknown pulse at 1420 MHz',
+  '<span class="tag cyan">[TRACK]</span> following signal beyond dark orbit',
+  '<span class="tag green">[LIFE]</span> organic probability rising · 87%',
+  '<span class="tag amber">[POWER]</span> recharge cycle active · 94%'
+];
+
+function streamTerminal(targetId, statusId, lines, statuses, delay) {
+  const target = document.querySelector(`#${targetId}`);
+  const status = document.querySelector(`#${statusId}`);
+  let index = 0;
+  window.setInterval(() => {
+    if (document.hidden) return;
+    const line = document.createElement('p');
+    line.innerHTML = lines[index % lines.length];
+    target.append(line);
+    while (target.children.length > 6) target.firstElementChild.remove();
+    status.textContent = statuses[index % statuses.length];
+    index += 1;
+  }, delay);
+}
+
+streamTerminal('developerTerminal', 'developerStatus', developerFeed,
+  ['COMPILING CLEAN', 'TESTS PASSING', 'SYSTEMS READY', 'BUILD SECURED'], 1900);
+streamTerminal('navigationTerminal', 'navigationStatus', navigationFeed,
+  ['VECTOR LOCKED', 'DEEP SCAN ACTIVE', 'SIGNAL TRACKED', 'CHARGE STABLE'], 2300);
