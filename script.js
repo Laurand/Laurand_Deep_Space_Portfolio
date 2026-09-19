@@ -253,3 +253,90 @@ streamTerminal('developerTerminal', 'developerStatus', developerFeed,
   ['COMPILING CLEAN', 'TESTS PASSING', 'SYSTEMS READY', 'BUILD SECURED'], 1900);
 streamTerminal('navigationTerminal', 'navigationStatus', navigationFeed,
   ['VECTOR LOCKED', 'DEEP SCAN ACTIVE', 'SIGNAL TRACKED', 'CHARGE STABLE'], 2300);
+
+const archiveDialog = document.querySelector('#archiveDialog');
+const archiveTitle = document.querySelector('#archiveTitle');
+const archiveTime = document.querySelector('#archiveTime');
+const archiveRecords = document.querySelectorAll('.archive-record');
+const archiveNames = {
+  about: 'ABOUT WEBSITE ARCHIVE',
+  privacy: 'PRIVACY PROTOCOL',
+  terms: 'TERMS OF EXPLORATION'
+};
+
+function updateArchiveTime() {
+  const now = new Date();
+  archiveTime.textContent = `${now.toLocaleDateString('en-US', {
+    year: 'numeric', month: 'short', day: '2-digit'
+  }).toUpperCase()} · ${now.toISOString().slice(11, 19)} UTC`;
+}
+
+document.querySelectorAll('[data-archive]').forEach((button) => {
+  button.addEventListener('click', () => {
+    const selected = button.dataset.archive;
+    archiveRecords.forEach((record) => {
+      record.hidden = record.dataset.record !== selected;
+    });
+    archiveTitle.textContent = archiveNames[selected];
+    updateArchiveTime();
+    archiveDialog.showModal();
+    tone(620, .08, .01);
+  });
+});
+
+document.querySelector('#closeArchive').addEventListener('click', () => archiveDialog.close());
+archiveDialog.addEventListener('click', (event) => {
+  if (event.target === archiveDialog) archiveDialog.close();
+});
+
+const ambientStreams = {
+  cpp: [
+    '#include <iostream>\nstd::cout << "future";',
+    'class Explorer {\n public: void build();\n};',
+    'std::vector<Signal> scan;\nscan.push_back(life);',
+    'constexpr bool ready = true;\nreturn EXIT_SUCCESS;'
+  ],
+  html: [
+    '<main id="mission">\n  <section>LAURAND</section>\n</main>',
+    '<article data-status="online">\n  <h2>PROJECTS</h2>\n</article>',
+    '<nav aria-label="portfolio">\n  <button>EXPLORE</button>\n</nav>',
+    '<terminal-output>\n  SIGNAL FOUND\n</terminal-output>'
+  ],
+  css: [
+    '.future-grid {\n  display: grid;\n  color: #77ffc7;\n}',
+    '.signal {\n  animation: pulse 1.5s;\n  opacity: 1;\n}',
+    '.space-panel {\n  backdrop-filter: blur(8px);\n}',
+    '@media (width < 850px) {\n  .bridge { gap: 1rem; }\n}'
+  ],
+  javascript: [
+    'const signal = await scan();\nconsole.log("life found");',
+    'const stack = ["C++", "JS"];\nstack.map(build);',
+    'if (mission.ready) {\n  launchPortfolio();\n}',
+    'terminal.addEventListener(\n  "input", analyze\n);'
+  ],
+  build: [
+    'g++ main.cpp -std=c++23\n[PASS] 0 errors',
+    'cmake --build ./future\n[LINK] systems ready',
+    'for (auto& idea : ideas) {\n  idea.compile();\n}',
+    'Robot explorer;\nexplorer.navigate();'
+  ],
+  web: [
+    'const stack = [\n  "HTML", "CSS", "JS"\n];',
+    'npm run build\n✓ interface optimized',
+    'fetch("/knowledge")\n  .then(renderMission);',
+    'document.querySelector(\n  "#future"\n).classList.add("live");'
+  ]
+};
+
+document.querySelectorAll('[data-code-stream]').forEach((screen, offset) => {
+  const stream = ambientStreams[screen.dataset.codeStream];
+  let index = 0;
+  window.setInterval(() => {
+    if (document.hidden || reduceMotion) return;
+    index = (index + 1) % stream.length;
+    screen.textContent = stream[index];
+    screen.parentElement.classList.remove('refresh');
+    void screen.parentElement.offsetWidth;
+    screen.parentElement.classList.add('refresh');
+  }, 2400 + (offset * 370));
+});
