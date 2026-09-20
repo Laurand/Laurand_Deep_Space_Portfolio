@@ -12,6 +12,79 @@ const lifeLog = document.querySelector('#lifeLog');
 const soundToggle = document.querySelector('#soundToggle');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+const bootSequence = document.querySelector('#bootSequence');
+const bootTerminal = document.querySelector('#bootTerminal');
+const bootStatus = document.querySelector('#bootStatus');
+const bootPercent = document.querySelector('#bootPercent');
+const bootProgress = document.querySelector('.boot-progress');
+const bootProgressBar = document.querySelector('#bootProgressBar');
+const bootClock = document.querySelector('#bootClock');
+const bootStages = [
+  {at: 12, status: 'LINKING C++ CORE', line: '[LOAD] C++ computation core linked'},
+  {at: 27, status: 'MOUNTING WEB INTERFACE', line: '[MOUNT] HTML structure + CSS interface ready'},
+  {at: 43, status: 'SYNCHRONIZING SIGNALS', line: '[SYNC] JavaScript interaction network online'},
+  {at: 59, status: 'INDEXING MISSION HISTORY', line: '[INDEX] projects · education · experience loaded'},
+  {at: 75, status: 'CONNECTING DEEP SCAN', line: '[SCAN] exoplanet intelligence channel stable'},
+  {at: 90, status: 'VERIFYING LOCAL KNOWLEDGE', line: '[VERIFY] private local response core secured'},
+  {at: 100, status: 'COMMAND DECK ONLINE', line: '[LAUNCH] portfolio mission access granted'}
+];
+let bootStageIndex = 0;
+let bootClosed = false;
+
+function closeBoot() {
+  if (bootClosed) return;
+  bootClosed = true;
+  bootSequence.classList.add('closing');
+  window.setTimeout(() => {
+    bootSequence.hidden = true;
+    document.body.classList.remove('booting');
+  }, reduceMotion ? 80 : 560);
+}
+
+function addBootLine(text) {
+  const line = document.createElement('p');
+  const split = text.indexOf(']') + 1;
+  const tag = document.createElement('span');
+  tag.textContent = text.slice(0, split);
+  line.append(tag, document.createTextNode(text.slice(split)));
+  bootTerminal.append(line);
+  while (bootTerminal.children.length > 5) bootTerminal.firstElementChild.remove();
+  bootTerminal.scrollTop = bootTerminal.scrollHeight;
+}
+
+function runBoot(timestamp) {
+  if (bootClosed) return;
+  if (!runBoot.startedAt) runBoot.startedAt = timestamp;
+  const duration = reduceMotion ? 420 : 3400;
+  const elapsed = timestamp - runBoot.startedAt;
+  const linear = Math.min(elapsed / duration, 1);
+  const progress = Math.round((1 - Math.pow(1 - linear, 2.1)) * 100);
+
+  bootPercent.textContent = `${progress}%`;
+  bootProgressBar.style.width = `${progress}%`;
+  bootProgress.setAttribute('aria-valuenow', String(progress));
+  bootClock.textContent = `${new Date().toISOString().slice(11, 19)} UTC`;
+
+  while (bootStageIndex < bootStages.length && progress >= bootStages[bootStageIndex].at) {
+    const stage = bootStages[bootStageIndex];
+    bootStatus.textContent = stage.status;
+    addBootLine(stage.line);
+    bootStageIndex += 1;
+  }
+
+  if (linear < 1) {
+    window.requestAnimationFrame(runBoot);
+  } else {
+    window.setTimeout(closeBoot, reduceMotion ? 100 : 720);
+  }
+}
+
+document.querySelector('#skipBoot').addEventListener('click', closeBoot);
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && !bootClosed) closeBoot();
+});
+window.requestAnimationFrame(runBoot);
+
 let soundEnabled = true;
 let audioContext;
 

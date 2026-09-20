@@ -10,8 +10,31 @@
   <link rel="preload" href="assets/emerald-exoplanet.png" as="image" type="image/png">
   <link rel="preload" href="assets/laurand-graduation.webp" as="image" type="image/webp">
   <link rel="stylesheet" href="styles.css">
+  <noscript><style>.boot-sequence{display:none!important}body.booting{overflow:auto!important}</style></noscript>
 </head>
-<body>
+<body class="booting">
+  <section class="boot-sequence" id="bootSequence" aria-label="Portfolio initialization">
+    <div class="boot-grid" aria-hidden="true"></div>
+    <div class="boot-shell">
+      <header class="boot-header">
+        <div><span>L//O</span><p>DEEP SPACE INTELLIGENCE ARCHIVE<br><b>INITIAL ACCESS SEQUENCE</b></p></div>
+        <button type="button" id="skipBoot">SKIP TRANSMISSION</button>
+      </header>
+
+      <div class="boot-core" aria-hidden="true"><i></i><i></i><b>L0</b></div>
+      <p class="boot-kicker">MISSION L0 // HUMAN + MACHINE INTELLIGENCE</p>
+      <h1>LAUNCHING<br><span>COMMAND DECK</span></h1>
+
+      <div class="boot-terminal" id="bootTerminal" aria-live="polite">
+        <p><span>[WAKE]</span> Deep Space Intelligence Archive responding</p>
+        <p><span>[VERIFY]</span> identity signature: LAURAND OSMENI</p>
+      </div>
+
+      <div class="boot-progress-head"><span id="bootStatus">INITIALIZING CORE</span><b id="bootPercent">0%</b></div>
+      <div class="boot-progress" role="progressbar" aria-label="Portfolio loading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="bootProgressBar"></i></div>
+      <footer><span>EARTH ORIGIN // CALIFORNIA</span><span>SECURE LOCAL INTERFACE</span><span id="bootClock">00:00:00 UTC</span></footer>
+    </div>
+  </section>
   <a class="skip-link" href="#askCore">Skip to intelligence terminal</a>
   <div class="space-layer" aria-hidden="true"></div>
   <div class="star-grid" aria-hidden="true"></div>
